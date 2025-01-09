@@ -42,6 +42,10 @@ if uploaded_file is not None:
         # Remove rows where all columns except "Size" and "Quantity" are NaN
         final_data = final_data.dropna(how="all", subset=other_columns.columns)
 
+        # Sort the data alphabetically based on the specified column
+        sort_column = st.selectbox("Select the column to sort by", final_data.columns, index=0)
+        final_data = final_data.sort_values(by=sort_column, ascending=True)
+
         # Display the transformed data
         st.write("Transformed Data:")
         st.dataframe(final_data)
