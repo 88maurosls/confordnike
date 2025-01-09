@@ -39,6 +39,9 @@ if uploaded_file is not None:
         # Remove rows with NaN quantities to keep only relevant size rows
         final_data = melted_data.dropna(subset=["Quantity"])
 
+        # Remove rows where all columns except "Size" and "Quantity" are NaN
+        final_data = final_data.dropna(how="all", subset=other_columns.columns)
+
         # Display the transformed data
         st.write("Transformed Data:")
         st.dataframe(final_data)
@@ -66,4 +69,3 @@ if uploaded_file is not None:
         st.error(f"An error occurred: {e}")
 else:
     st.info("Please upload an Excel file to proceed.")
-
