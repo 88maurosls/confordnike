@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Title of the Streamlit app
-st.title("Excel Size Data Transformation")
+st.title("Nike Order Template")
 
 # File uploader to allow the user to upload an Excel file
 uploaded_file = st.file_uploader("Upload your Excel file", type=["xlsx"])
